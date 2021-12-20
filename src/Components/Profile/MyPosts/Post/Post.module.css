@@ -1,0 +1,25 @@
+.item img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.post {
+    background-color: #c2c2c2;
+    padding: 7px;
+    margin: 0px 0px 3px 0px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.item {
+    padding: 10px 0px 0px 0px;
+}
+
+.postText {
+    padding: 0px 0px 0px 10px;
+    font-size: 13px;
+}
+
+.postLikes {
+    font-size: 13px;
+}

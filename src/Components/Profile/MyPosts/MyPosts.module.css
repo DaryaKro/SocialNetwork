@@ -1,0 +1,33 @@
+h3 {
+    color: white;
+}
+
+.postsBlock {
+    padding: 0px 20px 20px 20px;
+}
+
+.postTextarea {
+    max-width: 100%;
+    padding: 0px 5px 0px 0px;
+}
+
+.postTextarea textarea {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    resize: none;
+    border-radius: 5px;
+}
+
+.postsButton {
+    padding: 4px 0px 10px 0px;
+}
+
+.postsButton button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #8500BA;
+    color: white;
+    padding: 5px;
+    width: 170px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}

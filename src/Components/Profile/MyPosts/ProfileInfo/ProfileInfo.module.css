@@ -1,0 +1,27 @@
+.profileImg img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.descriptionBlock {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: 20px 20px 30px 20px;
+    border-radius: 5px;
+    background-color: #c2c2c2;
+}
+
+.avatarImg {
+    padding: 10px;
+}
+
+.avatarImg img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.peopleDescription {
+    padding: 10px;
+    font-size: 15px;
+    line-height: 25px;
+}

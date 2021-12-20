@@ -1,0 +1,58 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.dialogItems {
+    margin: 20px 0px 20px 20px;
+    line-height: 30px;
+}
+
+.dialogItems a {
+    color: white;
+    text-decoration: none;
+}
+
+.messages {
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    margin: 20px;
+    padding: 10px;
+    color: black;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: #c2c2c2;
+    border-radius: 5px;
+}
+
+.messageInputSend {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.messageTextarea {
+    padding: 10px 0px 0px 0px ;
+    max-width: 400px;
+}
+
+.messageTextarea textarea {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+}
+
+.messageButton {
+    padding: 11px 5px;
+}
+
+.messageButton button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #8500BA;
+    color: white;
+    padding: 5px;
+    width: 150px;
+    height: 36px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
