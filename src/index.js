@@ -12,7 +12,7 @@ const rerenderEntireTree = () => {
         <React.StrictMode>
             <BrowserRouter>
                 <StoreContext.Provider value={store}>
-                    <App store={store}/>
+                    <App />
                 </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>,

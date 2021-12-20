@@ -3,26 +3,29 @@ import Dialogs from "./Dialogs";
 import StoreContext from "../../StoreContext";
 
 const DialogsContainer = (props) => {
-    <StoreContext.Consumer>
-        {store => {
-            let state = store.getState();
+    return (
+        <StoreContext.Consumer>
+            {
+                store => {
+                let state = store.getState();
 
-            const onNewMessageChange = (body) => {
-                store.dispatch(updateNewMessageBodyCreator(body));
-            }
+                const onNewMessageChange = (body) => {
+                    store.dispatch(updateNewMessageBodyCreator(body));
+                }
 
-            const onSendMessageClick = () => {
-                store.dispatch(sendMessageCreator());
-            }
+                const onSendMessageClick = () => {
+                    store.dispatch(sendMessageCreator());
+                }
 
-            return (<Dialogs updateNewMessageBodyCreator={onNewMessageChange}
-                             sendMessageCreator={onSendMessageClick}
-                             DialogsData={state.dialogsReducer.DialogsData}
-                             MessagesData={state.dialogsReducer.MessagesData}
-                             newMessageBody={state.dialogsReducer.newMessageBody}/>);
+                return (<Dialogs updateNewMessageBodyCreator={onNewMessageChange}
+                                 sendMessageCreator={onSendMessageClick}
+                                 DialogsData={state.dialogsReducer.DialogsData}
+                                 MessagesData={state.dialogsReducer.MessagesData}
+                                 newMessageBody={state.dialogsReducer.newMessageBody}/>);
+                }
             }
-        }
-    </StoreContext.Consumer>
+        </StoreContext.Consumer>
+    )
 }
 
 export default DialogsContainer;
