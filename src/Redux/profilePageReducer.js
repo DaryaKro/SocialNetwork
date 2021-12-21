@@ -18,12 +18,16 @@ const profilePageReduce = (state = initialState, action) => {
                 message: state.newPostText,
                 likesCount: "0",
             };
-            state.PostsData.push(newPost);
-            state.newPostText = "";
-            return state;
+            return {
+                ...state,
+                PostsData: [...state.PostsData, newPost],
+                newPostText: "",
+            };
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            return {
+                ...state,
+                newPostText: action.newText,
+            };
         default:
             return state;
     }
