@@ -10,7 +10,7 @@ let initialState = {
     newPostText: "It's my new post",
 };
 
-const profilePageReduce = (state = initialState, action) => {
+const profilePageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -36,4 +36,4 @@ const profilePageReduce = (state = initialState, action) => {
 export const addPostCreator = () => ({ type: ADD_POST })
 export const updateNewPostTextCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
 
-export default profilePageReduce;
+export default profilePageReducer;
