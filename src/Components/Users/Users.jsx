@@ -3,17 +3,21 @@ import axios from "axios";
 import userPhoto from "../../assets/images/user.jpeg";
 
 const Users = (props) => {
-    if (props.UsersData.length === 0) {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                props.setUsers(response.data.items);
-            })
+    let getUsers = () => {
+        if (props.UsersData.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    props.setUsers(response.data.items);
+                })
+        }
     }
+
     console.log(props);
     debugger;
 
     return (
         <div className={obj.users}>
+            <button onClick={getUsers}>Get Users</button>
             {
                 props.UsersData.map((u) =>
                     <div key={u.id}>
