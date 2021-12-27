@@ -8,7 +8,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-debugger;
 const mapDispatchToProps = (dispatch) => {
     return {
         follow: (userID) => {
