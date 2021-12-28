@@ -19,6 +19,7 @@ const App = () => {
                 <Routes>
                     <Route path="/profile" element={ <Profile/>}/>
                     <Route path="/dialogs" element={ <DialogsContainer/> }/>
+                    <Route path="/dialogs/:id" element={ <DialogsContainer/> }/>
                     <Route path="/news" element={ <News/> }/>
                     <Route path="/music" element={ <Music/> }/>
                     <Route path="/users" element={ <UsersContainer/> }/>

@@ -8,3 +8,11 @@
     border-radius: 50%;
     margin: 0px 7px -4px 0px;
 }
+
+.active {
+    color: black;
+}
+
+.item {
+    color: white;
+}

@@ -1,6 +1,8 @@
 import obj from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
 
+const setActive = ({isActive}) => isActive ? obj.active : obj.item;
+
 const DialogItem = (props) => {
     const path = "/dialogs/" + props.id;
 

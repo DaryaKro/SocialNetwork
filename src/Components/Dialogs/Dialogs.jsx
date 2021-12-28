@@ -24,7 +24,7 @@ const Dialogs = (props) => {
             </div>
             <div className={obj.messages}>
                 <div>
-                    {messagesItems}
+                    { messagesItems }
                 </div>
                 <div className={obj.messageInputSend}>
                     <span className={obj.messageTextarea}>
