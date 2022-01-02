@@ -12,43 +12,49 @@ const Users = (props) => {
         Pages.push(i);
     }
 
+    // page display, on my own
+    if (props.currentPage <= 5) {
+        Pages.splice(10);
+        Pages.push("...");
+    } else {
+        Pages.splice(0, props.currentPage - 5, "...");
+        Pages.splice(10);
+        // Pages.unshift("...");
+        Pages.push("...");
+    }
+    //
+
     return (
         <div className={obj.users}>
-            <div>
+            {props.UsersData.map((u) =>
+                <div key={u.id} className={obj.user}>
+                    <div className={obj.userAvatar}>
+                        <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="photo"/>
+                    </div>
+                    <div className={obj.userNameAndStatus}>
+                        <div className={obj.userName}>{u.name}</div>
+                        <div className={obj.userStatus}>{u.status}</div>
+                    </div>
+                    <div className={obj.userFollow}>
+                        {u.followed
+                            ? <button onClick={() => props.unfollow(u.id)} className={obj.userButtonUnfollow}>Unfollow</button>
+                            : <button onClick={() => props.follow(u.id)} className={obj.userButtonFollow}>Follow</button>}
+                    </div>
+                </div>)
+            }
+            <div className={obj.pages}>
                 {Pages.map((p) => {
                     return (
                         <span className={props.currentPage === p && obj.selected}
-                              onClick={() => {props.onPageChanged(p)}}>
+                              onClick={() => {
+                                  props.onPageChanged(p)
+                              }}>
                             {p + " "}
                         </span>
                     )
                 })}
+                <div className={obj.separator}></div>
             </div>
-            {
-                props.UsersData.map((u) =>
-                    <div key={u.id}>
-                        <span>
-                            <div className={obj.userAvatar}>
-                                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="photo"/>
-                            </div>
-                            <div>
-                                {u.followed
-                                    ? <button onClick={() => props.unfollow(u.id)}>Unfollow</button>
-                                    : <button onClick={() => props.follow(u.id)}>Follow</button>}
-                            </div>
-                        </span>
-                        <span>
-                            <span>
-                                <div>{u.name}</div>
-                                <div>{u.status}</div>
-                            </span>
-                            {/*<span>*/}
-                            {/*    <div>{"u.location.country"}</div>*/}
-                            {/*    <div>{"u.location.city"}</div>*/}
-                            {/*</span>*/}
-                        </span>
-                    </div>)
-            }
         </div>
     );
 }
