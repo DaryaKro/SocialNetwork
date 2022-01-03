@@ -3,8 +3,6 @@ import React from "react";
 import userPhoto from "../../assets/images/user.jpeg";
 
 const Users = (props) => {
-    console.log(props);
-    debugger;
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let Pages = [];
