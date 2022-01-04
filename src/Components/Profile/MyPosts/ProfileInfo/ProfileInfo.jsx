@@ -1,6 +1,7 @@
 import obj from "./ProfileInfo.module.css";
 
 const ProfileInfo = (props) => {
+    console.log(props);
     return (
       <div>
           <div className={obj.profileImg}>
@@ -8,13 +9,16 @@ const ProfileInfo = (props) => {
           </div>
           <div className={obj.descriptionBlock}>
               <div className={obj.avatarImg}>
-                  <img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar"/>
+                  <img src={props.userProfile.photos.large} alt="userPhoto"/>
+                  {/*<img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar"/>*/}
               </div>
-              <div className={obj.peopleDescription}>
-                  <div>Name: Dasha</div>
-                  <div>Surname: Undefined</div>
-                  <div>Education: University</div>
-                  <div>City: Moscow</div>
+              <div className={obj.userDescription}>
+                  {/*<div>Name: Dasha</div>*/}
+                  {/*<div>Surname: Undefined</div>*/}
+                  {/*<div>Education: University</div>*/}
+                  {/*<div>City: Moscow</div>*/}
+                  <div>Name: {props.userProfile.fullName}</div>
+                  <div>Status: {props.userProfile.aboutMe}</div>
               </div>
           </div>
       </div>

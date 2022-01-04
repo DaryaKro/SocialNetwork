@@ -9,7 +9,6 @@ let reducers = combineReducers({
     usersReducer,
 });
 
-
 let store = createStore(reducers);
 
 export default store;
