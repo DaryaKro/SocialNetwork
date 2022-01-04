@@ -17,10 +17,14 @@ const App = () => {
             <NavBar/>
             <div className="wrapperContent">
                 <Routes>
-                    <Route path="/profile/" element={ <ProfileContainer/>}/>
-                    <Route path="/profile/:id" element={ <ProfileContainer/>}/>
-                    <Route path="/dialogs" element={ <DialogsContainer/> }/>
-                    <Route path="/dialogs/:id" element={ <DialogsContainer/> }/>
+                    <Route path="/profile" element={ <ProfileContainer/>}>
+                        <Route path=":userId" element={ <ProfileContainer/>}/>
+                    </Route>
+                    {/*<Route path="/profile/:id" element={ <ProfileContainer/>}/>*/}
+                    <Route path="/dialogs" element={ <DialogsContainer/>}>
+                        <Route path=":id" element={ <DialogsContainer/>}/>
+                    </Route>
+                    {/*<Route path="/dialogs/:id" element={ <DialogsContainer/> }/>*/}
                     <Route path="/news" element={ <News/> }/>
                     <Route path="/music" element={ <Music/> }/>
                     <Route path="/users" element={ <UsersContainer/> }/>
