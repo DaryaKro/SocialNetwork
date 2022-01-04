@@ -1,14 +1,35 @@
 .header {
     display: grid;
-    grid-template: 60px / 2fr 1fr 7fr 2fr;
+    grid-template: 60px / 2fr 2fr 6fr 2fr;
     background-color: #000;
     grid-column: 1 / 5;
     grid-row: 1 / 2;
+    position: relative;
+    grid-gap: 20px;
+}
+
+.second {
+    grid-column: 2 / 3;
+    color: white;
 }
 
 .header svg {
-    grid-column: 2 / 4;
-    width: 160px;
+    position: absolute;
+    width: auto;
     height: 40px;
-    padding: 10px 8px;
+    padding: 10px 0px;
+}
+
+.loginBlock {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    color: #c2c2c2;
+    text-align: right;
+    padding: 20px 0px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.pathToLoginPage {
+    text-decoration: none;
+    color: #c2c2c2;
 }

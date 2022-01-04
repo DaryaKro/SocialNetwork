@@ -39,6 +39,5 @@ const mapStateToProps = (state) => ({
 })
 
 let WithURLDataContainerComponent = withRouter(ProfileContainer);
-console.log(WithURLDataContainerComponent);
 
 export default connect(mapStateToProps, {setUserProfile})(WithURLDataContainerComponent);

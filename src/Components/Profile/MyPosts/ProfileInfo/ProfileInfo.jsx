@@ -25,7 +25,7 @@ const ProfileInfo = (props) => {
                     {/*<div>Surname: Undefined</div>*/}
                     {/*<div>Education: University</div>*/}
                     {/*<div>City: Moscow</div>*/}
-                    <div>Name: {props.userProfile.fullName}</div>
+                    <div className={obj.userName}>Name: {props.userProfile.fullName}</div>
                     <div>Status: {props.userProfile.aboutMe}</div>
                 </div>
             </div>
