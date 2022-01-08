@@ -1,15 +1,15 @@
-// import obj from "./Profile.module.css";
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getUserProfile, setUserProfile} from "../../Redux/profilePageReducer";
 import {useParams} from "react-router-dom";
 import withAuthNavigate from "../../hoc/withAuthNavigate";
+import {compose} from "redux";
 
 const withRouter = (WrappedComponent) => (props) => {
     const params = useParams();
     return (
-        <WrappedComponent {...props} params = {params}/>
+        <WrappedComponent {...props} params={params}/>
     );
 };
 
@@ -25,12 +25,12 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let AuthNavigateComponent = withAuthNavigate(ProfileContainer);
-
 const mapStateToProps = (state) => ({
     userProfile: state.profilePageReducer.userProfile,
 })
 
-let WithURLDataContainerComponent = withRouter(AuthNavigateComponent);
-
-export default connect(mapStateToProps, {setUserProfile, getUserProfile})(WithURLDataContainerComponent);
+export default compose(
+    connect(mapStateToProps, {setUserProfile, getUserProfile}),
+    withRouter,
+    withAuthNavigate)
+(ProfileContainer);
