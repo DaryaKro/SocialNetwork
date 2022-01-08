@@ -1,7 +1,7 @@
 import obj from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
-import {Navigate, NavLink} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 const Dialogs = (props) => {
 

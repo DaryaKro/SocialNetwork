@@ -8,7 +8,7 @@ const Settings = (props) => {
                 Settings
             </div>
             <div>
-                Page under construction
+                I can fix your problems, baby
             </div>
             <img src={smiling} alt="smiling" className={obj.smiling}/>
         </div>
