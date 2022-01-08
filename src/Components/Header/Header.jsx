@@ -12,7 +12,7 @@ const Header = (props) => {
                 {props.isAuth
                     ? <div>
                         {props.login + " "}
-                        {props.userId}
+                        {/*{props.userId}*/}
                     </div>
                     : <NavLink to={"/login"} className={obj.pathToLoginPage}>Login</NavLink>}
             </div>

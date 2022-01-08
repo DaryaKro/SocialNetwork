@@ -1,9 +1,8 @@
 // import obj from "./Profile.module.css";
 import React from "react";
 import Profile from "./Profile";
-import axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../Redux/profilePageReducer";
+import {getUserProfile, setUserProfile} from "../../Redux/profilePageReducer";
 import {useParams} from "react-router-dom";
 
 //?what happen, can't see params in console
@@ -16,20 +15,12 @@ const withRouter = (WrappedComponent) => (props) => {
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let userId = this.props.params.userId;
-        if (!userId){
-            userId=2;
-        }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                console.log(response.data);
-                this.props.setUserProfile(response.data);
-            });
+       this.props.getUserProfile(this.props.params.userId);
     }
 
     render() {
         return (
-                <Profile {...this.props} userProfile={this.props.userProfile}/>
+            <Profile {...this.props} userProfile={this.props.userProfile}/>
         )
     }
 }
@@ -40,4 +31,4 @@ const mapStateToProps = (state) => ({
 
 let WithURLDataContainerComponent = withRouter(ProfileContainer);
 
-export default connect(mapStateToProps, {setUserProfile})(WithURLDataContainerComponent);
+export default connect(mapStateToProps, {setUserProfile, getUserProfile})(WithURLDataContainerComponent);

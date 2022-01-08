@@ -1,3 +1,5 @@
+import {authAPI} from "../api/api";
+
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -38,10 +40,19 @@ const profilePageReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
-export const addPostCreator = () => ({ type: ADD_POST })
-export const updateNewPostTextCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-export const setUserProfile = (userProfile) => ({ type: SET_USER_PROFILE, userProfile: userProfile })
+export const addPostCreator = () => ({ type: ADD_POST });
+export const updateNewPostTextCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export const setUserProfile = (userProfile) => ({ type: SET_USER_PROFILE, userProfile: userProfile });
+
+export const getUserProfile = (userId) => (dispatch) => {
+    if (!userId) {
+        userId = 21526;
+    }
+    authAPI.showProfile(userId).then(data => {
+        dispatch(setUserProfile(data));
+    });
+}
 
 export default profilePageReducer;

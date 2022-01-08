@@ -2,8 +2,6 @@ import obj from "./Users.module.css";
 import React from "react";
 import userPhoto from "../../assets/images/user.jpeg";
 import {NavLink} from "react-router-dom";
-import axios from "axios";
-import {usersAPI} from "../../api/api";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -14,7 +12,7 @@ const Users = (props) => {
     }
 
     // page display, on my own
-    if (props.currentPage <= 5) {
+    if (props.currentPage <= 5 || props.currentPage === "...") {
         Pages.splice(10);
         Pages.push("...");
     } else {
@@ -41,23 +39,11 @@ const Users = (props) => {
                     <div className={obj.userFollow}>
                         {u.followed
                             ? <button disabled={props.isFollowingInProgress.some((id) => id === u.id)} onClick={() => {
-                                props.toggleIsFollowingInProgress(true, u.id);
-                                usersAPI.deleteFollowing(u.id).then(data => {
-                                        if (data.resultCode === 0) {
-                                            props.unfollow(u.id);
-                                        }
-                                    props.toggleIsFollowingInProgress(false, u.id);
-                                    });
+                                    props.unfollowUser(u.id);
                                 }}
                             className={obj.userButtonUnfollow}>Unfollow</button>
                             : <button disabled={props.isFollowingInProgress.some((id) => id === u.id)} onClick={() => {
-                                props.toggleIsFollowingInProgress(true, u.id);
-                                usersAPI.createFollowing(u.id).then(data => {
-                                        if (data.resultCode === 0) {
-                                            props.follow(u.id);
-                                        }
-                                    props.toggleIsFollowingInProgress(false, u.id);
-                                    });
+                                    props.followUser(u.id);
                                 }}
                             className={obj.userButtonFollow}>Follow</button>}
                     </div>
