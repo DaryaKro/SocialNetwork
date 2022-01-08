@@ -3,9 +3,8 @@ import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getUserProfile, setUserProfile} from "../../Redux/profilePageReducer";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 
-//?what happen, can't see params in console
 const withRouter = (WrappedComponent) => (props) => {
     const params = useParams();
     return (
@@ -19,6 +18,9 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        if (!this.props.isAuth) {
+            return <Navigate to="/login"/>;
+        }
         return (
             <Profile {...this.props} userProfile={this.props.userProfile}/>
         )
@@ -27,6 +29,7 @@ class ProfileContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
     userProfile: state.profilePageReducer.userProfile,
+    isAuth: state.authReducer.isAuth,
 })
 
 let WithURLDataContainerComponent = withRouter(ProfileContainer);

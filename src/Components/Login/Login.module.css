@@ -1,0 +1,11 @@
+.login {
+    padding: 20px 20px 10px 20px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.siteForLogin {
+    padding: 20px;
+    color: #fff;
+    /*text-decoration: none;*/
+}
