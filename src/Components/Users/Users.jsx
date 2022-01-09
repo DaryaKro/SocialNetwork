@@ -60,7 +60,7 @@ const Users = (props) => {
                         </span>
                     )
                 })}
-                <div className={obj.separator}></div>
+                <div className={obj.separator}/>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import obj from "./ProfileInfo.module.css";
-import Preloader from "../../../common/Preloader/Preloader";
-import userPhoto from "../../../../assets/images/user.jpeg";
-import ProfileStatus from "../../ProfileStatus/ProfileStatus";
+import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/user.jpeg";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
     if (!props.userProfile) {
@@ -26,7 +26,7 @@ const ProfileInfo = (props) => {
                     {/*<div>Education: University</div>*/}
                     {/*<div>City: Moscow</div>*/}
                     <div className={obj.userName}>{props.userProfile.fullName}</div>
-                    <ProfileStatus status="hello"/>
+                    <ProfileStatus userStatus={props.userStatus} updateUserStatus={props.updateUserStatus}/>
                 </div>
             </div>
         </div>
