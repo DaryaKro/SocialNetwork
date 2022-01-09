@@ -1,4 +1,4 @@
-import {authAPI} from "../api/api";
+import {usersAPI} from "../api/api";
 
 const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
@@ -50,7 +50,7 @@ export const getUserProfile = (userId) => (dispatch) => {
     if (!userId) {
         userId = 21526;
     }
-    authAPI.showProfile(userId).then(data => {
+    usersAPI.showProfile(userId).then(data => {
         dispatch(setUserProfile(data));
     });
 }

@@ -18,13 +18,13 @@ export const usersAPI = {
     createFollowing(id = 2) {
         return instance.post(`follow/${id}`).then(response => response.data);
     },
-    getAuthorization() {
-        return instance.get(`auth/me`).then(response => response.data);
+    showProfile(userId) {
+        return instance.get(`profile/${userId}`).then(response => response.data);
     },
 };
 
 export const authAPI = {
-    showProfile(userId) {
-        return instance.get(`profile/${userId}`).then(response => response.data);
+    getAuthorization() {
+        return instance.get(`auth/me`).then(response => response.data);
     },
 };

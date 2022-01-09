@@ -1,9 +1,9 @@
 import obj from "./ProfileInfo.module.css";
 import Preloader from "../../../common/Preloader/Preloader";
 import userPhoto from "../../../../assets/images/user.jpeg";
+import ProfileStatus from "../../ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
-    //?????????????????????????????????????????????????????????????????????
     if (!props.userProfile) {
         return <Preloader />
     }
@@ -25,8 +25,8 @@ const ProfileInfo = (props) => {
                     {/*<div>Surname: Undefined</div>*/}
                     {/*<div>Education: University</div>*/}
                     {/*<div>City: Moscow</div>*/}
-                    <div className={obj.userName}>Name: {props.userProfile.fullName}</div>
-                    <div>Status: {props.userProfile.aboutMe}</div>
+                    <div className={obj.userName}>{props.userProfile.fullName}</div>
+                    <ProfileStatus status="hello"/>
                 </div>
             </div>
         </div>

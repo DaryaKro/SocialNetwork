@@ -1,0 +1,8 @@
+.inactiveStatus {
+    font-size: 13px;
+}
+
+.activeStatus input {
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
