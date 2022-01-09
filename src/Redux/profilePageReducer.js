@@ -57,6 +57,7 @@ export const setUserStatus = (userStatus) => ({ type: SET_USER_STATUS, userStatu
 export const getUserProfile = (userId) => (dispatch) => {
     if (!userId) {
         userId = 21526;
+        // userId = 21731;
     }
     usersAPI.getProfile(userId).then(data => {
         dispatch(setUserProfile(data));
@@ -66,6 +67,7 @@ export const getUserProfile = (userId) => (dispatch) => {
 export const getUserStatus = (userId) => (dispatch) => {
     if (!userId) {
         userId = 21526;
+        // userId = 21731;
     }
     profileAPI.getStatus(userId).then(data => {
         dispatch(setUserStatus(data));
