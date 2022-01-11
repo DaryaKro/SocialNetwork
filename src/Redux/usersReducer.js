@@ -28,7 +28,7 @@ const usersReducer = (state = initialState, action) => {
                     }
                     return u;
                 })
-            }
+            };
         case UNFOLLOW_SUCCESS:
             return {
                 ...state,
@@ -38,34 +38,34 @@ const usersReducer = (state = initialState, action) => {
                     }
                     return u;
                 })
-            }
+            };
         case SET_USERS:
             return {
                 ...state,
                 UsersData: action.UsersData,
-            }
+            };
         case SET_CURRENT_PAGE:
             return {
                 ...state,
                 currentPage: action.currentPage,
-            }
+            };
         case SET_TOTAL_USERS_COUNT:
             return {
                 ...state,
                 totalUsersCount: action.totalUsersCount,
-            }
+            };
         case TOGGLE_IS_FETCHING:
             return {
                 ...state,
                 isFetching: action.isFetching,
-            }
+            };
         case TOGGLE_IS_FOLLOWING_IN_PROGRESS:
             return {
                 ...state,
                 isFollowingInProgress: action.isFetching
                     ? [...state.isFollowingInProgress, action.userID]
                     : state.isFollowingInProgress.filter((id) => id != action.userID),
-            }
+            };
         default:
             return state;
     }

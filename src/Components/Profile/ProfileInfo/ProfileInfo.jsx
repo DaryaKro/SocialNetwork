@@ -7,7 +7,6 @@ const ProfileInfo = (props) => {
     if (!props.userProfile) {
         return <Preloader />
     }
-
     return (
         <div>
             <div className={obj.profileImg}>

@@ -1,0 +1,15 @@
+.textareaError textarea {
+    border: 2px solid #ea0000;
+    background-color: #ffe9e9;
+}
+
+.textareaError input {
+    border: 2px solid #ea0000;
+    background-color: #ffe8f1;
+}
+
+.errorMessage {
+    color: #720000;
+    font-weight: 700;
+    font-size: 12px;
+}
