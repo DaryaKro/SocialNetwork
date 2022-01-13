@@ -29,7 +29,6 @@ const MyPosts = (props) => {
 }
 
 const PostForm = (props) => {
-    debugger;
     return (
         <form onSubmit={props.handleSubmit}>
             <div className={obj.postTextarea}>

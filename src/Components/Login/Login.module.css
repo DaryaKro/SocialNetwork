@@ -26,6 +26,7 @@
 }
 
 .loginCheckbox {
+    display: flex;
     width: 30%;
     text-align: left;
     font-size: 12px;
@@ -33,4 +34,8 @@
     border-radius: 5px;
     margin: 5px 0px;
     color: #fff;
+}
+
+.loginCheckbox label {
+    margin: 2px 0px 0px 4px;
 }

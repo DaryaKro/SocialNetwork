@@ -18,7 +18,7 @@ const profilePageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
-                id: "4",
+                id: +new Date(),
                 message: action.newPostText,
                 likesCount: "0",
             };
@@ -46,20 +46,12 @@ export const setUserProfile = (userProfile) => ({ type: SET_USER_PROFILE, userPr
 export const setUserStatus = (userStatus) => ({ type: SET_USER_STATUS, userStatus: userStatus });
 
 export const getUserProfile = (userId) => (dispatch) => {
-    if (!userId) {
-        userId = 21526;
-        // userId = 21731;
-    }
     usersAPI.getProfile(userId).then(data => {
         dispatch(setUserProfile(data));
     });
 }
 
 export const getUserStatus = (userId) => (dispatch) => {
-    if (!userId) {
-        userId = 21526;
-        // userId = 21731;
-    }
     profileAPI.getStatus(userId).then(data => {
         dispatch(setUserStatus(data));
     });

@@ -15,8 +15,13 @@ const withRouter = (WrappedComponent) => (props) => {
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        this.props.getUserProfile(this.props.params.userId);
-        this.props.getUserStatus(this.props.params.userId);
+        let userId = this.props.params.userId;
+        if (!userId) {
+            debugger;
+            userId = this.props.authorizedUserId;
+        }
+        this.props.getUserProfile(userId);
+        this.props.getUserStatus(userId);
     }
 
     render() {
@@ -32,6 +37,8 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
     userProfile: state.profilePageReducer.userProfile,
     userStatus: state.profilePageReducer.userStatus,
+    authorizedUserId: state.authReducer.userId,
+    isAuth: state.authReducer.isAuth,
 })
 
 export default compose(

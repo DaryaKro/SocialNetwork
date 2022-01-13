@@ -5,6 +5,7 @@ import {requiredField} from "../../utils/validators";
 import {connect} from "react-redux";
 import {login} from "../../Redux/authReducer";
 import {Navigate} from "react-router-dom";
+import style from "../common/FormsControls/FormsControls.module.css";
 
 const Input = Element("input");
 
@@ -37,9 +38,11 @@ const LoginForm = (props) => {
                        className={obj.loginInput}/>
             </div>
             <div className={obj.loginCheckbox}>
-                <label>
-                    <Field type="checkbox" component={Input} name={"rememberMe"} id={"check"}/> remember me
-                </label>
+                <Field type="checkbox" component={Input} name={"rememberMe"} id={"check"}/>
+                <label>remember me</label>
+            </div>
+            <div>
+                { props.error && <div className={style.summaryError}>⚠ {props.error}</div> }
             </div>
             <div className={obj.loginButton}>
                 <button>Login</button>
