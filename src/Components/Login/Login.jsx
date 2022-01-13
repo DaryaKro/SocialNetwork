@@ -2,13 +2,19 @@ import obj from "./Login.module.css";
 import {Field, reduxForm, reset} from "redux-form";
 import {Element} from "../common/FormsControls/FormsControls";
 import {requiredField} from "../../utils/validators";
+import {connect} from "react-redux";
+import {login} from "../../Redux/authReducer";
+import {Navigate} from "react-router-dom";
 
 const Input = Element("input");
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        console.log(formData);
+        props.login(formData.email, formData.password, formData.rememberMe);
     }
+
+    if (props.isAuth) return <Navigate to={"/profile"}/>
+
     return (
         <div className={obj.wrapper}>
             <h3 className={obj.headingOfLoginPage}>Login</h3>
@@ -19,16 +25,16 @@ const Login = (props) => {
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit(props.reset)}>
+        <form onSubmit={props.handleSubmit}>
             <div>
-                <Field type="text" placeholder={"Login"} component={Input}
-                       validate={[requiredField]} name={"login"}
+                <Field type="text" placeholder={"Email"} component={Input}
+                       validate={[requiredField]} name={"email"}
                        className={obj.loginInput}/>
             </div>
             <div>
-                <Field type="text" placeholder={"Password"} component={Input}
+                <Field type="password" placeholder={"Password"} component={Input}
                        validate={[requiredField]} name={"password"}
-                       autocomplete={"off"} className={obj.loginInput}/>
+                       className={obj.loginInput}/>
             </div>
             <div className={obj.loginCheckbox}>
                 <label>
@@ -44,4 +50,8 @@ const LoginForm = (props) => {
 
 const LoginReduxForm = reduxForm({form: "login"})(LoginForm);
 
-export default Login;
+const mapStateToProps = (state) => ({
+    isAuth: state.authReducer.isAuth,
+})
+
+export default connect(mapStateToProps, {login})(Login);

@@ -1,5 +1,6 @@
 import obj from "./Header.module.css";
 import {NavLink} from "react-router-dom";
+import logoutImg from "../../assets/images/logoutSVG.svg";
 
 const Header = (props) => {
     return (
@@ -10,8 +11,9 @@ const Header = (props) => {
             </svg>
             <div className={obj.loginBlock}>
                 {props.isAuth
-                    ? <div>
-                        {props.login + " "}
+                    ? <div className={obj.loginInfo}>
+                        {props.login}
+                        <img src={logoutImg} alt="logoutImg" onClick={props.logout}/>
                         {/*{props.userId}*/}
                     </div>
                     : <NavLink to={"/login"} className={obj.pathToLoginPage}>Login</NavLink>}

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const data = response => response.data;
+
 const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     withCredentials: true,
@@ -10,13 +12,13 @@ const instance = axios.create({
 
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 6) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data);
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(data);
     },
     deleteFollowing(id = 2) {
-        return instance.delete(`follow/${id}`).then(response => response.data);
+        return instance.delete(`follow/${id}`).then(data);
     },
     createFollowing(id = 2) {
-        return instance.post(`follow/${id}`).then(response => response.data);
+        return instance.post(`follow/${id}`).then(data);
     },
     getProfile(userId) {
         console.warn("Obsolete method. Please use profileAPI object.");
@@ -26,18 +28,24 @@ export const usersAPI = {
 
 export const profileAPI = {
     getProfile(userId) {
-        return instance.get(`profile/${userId}`).then(response => response.data);
+        return instance.get(`profile/${userId}`).then(data);
     },
     getStatus(userId) {
-        return instance.get(`profile/status/${userId}`).then(response => response.data);
+        return instance.get(`profile/status/${userId}`).then(data);
     },
     updateStatus(userStatus) {
-        return instance.put(`profile/status`, {status: userStatus}).then(response => response.data);
+        return instance.put(`profile/status`, {status: userStatus}).then(data);
     },
 }
 
 export const authAPI = {
     getAuthorization() {
-        return instance.get(`auth/me`).then(response => response.data);
+        return instance.get(`auth/me`).then(data);
+    },
+    login(email, password, rememberMe) {
+        return instance.post(`auth/login`, {email, password, rememberMe}).then(data);
+    },
+    logout() {
+        return instance.delete(`auth/login`).then(data);
     },
 };
