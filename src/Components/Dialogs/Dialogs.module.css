@@ -15,7 +15,7 @@
 
 .messages {
     display: grid;
-    grid-template-rows: 2fr 110px;
+    grid-template-rows: 2fr;
     margin: 20px;
     padding: 10px;
     color: black;
@@ -23,6 +23,14 @@
     line-height: 20px;
     background-color: #c2c2c2;
     border-radius: 5px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+}
+
+.messageItems {
+    /*height: 300px;*/
+    /*overflow-y: scroll;*/
 }
 
 .messageInputSend {
@@ -30,9 +38,14 @@
     padding: 0px 10px 0px 0px;
 }
 
+.messageGrid {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 20px;
+}
+
 .messageTextarea {
-    padding: 10px 0px 0px 0px ;
-    max-width: 400px;
+    width: 100%;
 }
 
 .messageTextarea textarea {
@@ -40,18 +53,25 @@
     width: 100%;
     border-radius: 5px;
     resize: none;
+    padding: 5px;
 }
 
 .messageButton {
-    padding: 11px 0px;
+    /*margin: 0px 0px 0px 15px;*/
 }
 
 .messageButton button {
     font-family: 'Montserrat', sans-serif;
     background-color: #8500BA;
     color: white;
-    width: 70px;
-    height: 25px;
+    /*width: 70px;*/
+    /*height: 25px;*/
     border-radius: 5px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    width: 100%;
+    height: 42px;
 }
