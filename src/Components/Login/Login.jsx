@@ -1,5 +1,5 @@
 import obj from "./Login.module.css";
-import {Field, reduxForm, reset} from "redux-form";
+import {Field, reduxForm} from "redux-form";
 import {Element} from "../common/FormsControls/FormsControls";
 import {requiredField} from "../../utils/validators";
 import {connect} from "react-redux";
