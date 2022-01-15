@@ -37,4 +37,12 @@
 .loginBlock img {
     width: 27px;
     margin: -8px 0px -8px 8px;
+    filter: grayscale(30%);
+    transition: .3s ease-in-out;
+}
+
+.loginBlock img:hover {
+    width: 27px;
+    margin: -8px 0px -8px 8px;
+    filter: grayscale(0);
 }
