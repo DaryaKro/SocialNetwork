@@ -1,11 +1,10 @@
 import obj from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../assets/images/user.jpeg";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
-    if (!props.userProfile) {
+const ProfileInfo = ({userProfile, userStatus, updateUserStatus}) => {
+    if (!userProfile) {
         return <Preloader />
     }
     return (
@@ -17,16 +16,11 @@ const ProfileInfo = (props) => {
             </div>
             <div className={obj.descriptionBlock}>
                 <div className={obj.avatarImg}>
-                    <img src={props.userProfile.photos.large != null ? props.userProfile.photos.large : userPhoto} alt="userPhoto"/>
-                    {/*<img src="https://images.pexels.com/photos/848573/pexels-photo-848573.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar"/>*/}
+                    <img src={userProfile.photos.large != null ? userProfile.photos.large : userPhoto} alt="userPhoto"/>
                 </div>
                 <div className={obj.userDescription}>
-                    {/*<div>Name: Dasha</div>*/}
-                    {/*<div>Surname: Undefined</div>*/}
-                    {/*<div>Education: University</div>*/}
-                    {/*<div>City: Moscow</div>*/}
-                    <div className={obj.userName}>{props.userProfile.fullName}</div>
-                    <ProfileStatusWithHooks userStatus={props.userStatus} updateUserStatus={props.updateUserStatus}/>
+                    <div className={obj.userName}>{userProfile.fullName}</div>
+                    <ProfileStatusWithHooks userStatus={userStatus} updateUserStatus={updateUserStatus}/>
                 </div>
             </div>
         </div>

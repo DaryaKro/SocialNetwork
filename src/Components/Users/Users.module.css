@@ -15,17 +15,6 @@
     grid-column: 1 / 2;
 }
 
-.selected {
-    font-weight: 700;
-}
-
-.pages {
-    text-align: center;
-    grid-column: 1 / 4;
-    padding: 10px 0px 0px 0px;
-    font-size: 15px;
-}
-
 .user {
     background-color: #c2c2c2;
     padding: 10px;
@@ -77,10 +66,4 @@
 .userStatus {
     padding: 10px 0px 0px 0px;
     font-size: 12px;
-}
-
-.separator {
-    margin: 10px auto 10px auto;
-    border: 1px solid #8500BA;
-    width: 45%;
 }

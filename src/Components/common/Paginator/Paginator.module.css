@@ -1,0 +1,16 @@
+.pages {
+    text-align: center;
+    grid-column: 1 / 4;
+    padding: 10px 0px 0px 0px;
+    font-size: 15px;
+}
+
+.selected {
+    font-weight: 700;
+}
+
+.separator {
+    margin: 10px auto 10px auto;
+    border: 1px solid #8500BA;
+    width: 45%;
+}
