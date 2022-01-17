@@ -4,6 +4,7 @@ import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 
 const Users = (props) => {
+    console.log(props.totalUsersCount);
     return (
         <div className={obj.users}>
             {props.UsersData.map((u) =>
@@ -13,10 +14,11 @@ const Users = (props) => {
                       unfollowUser={props.unfollowUser}
                       followUser={props.followUser}/>)
             }
-            <Paginator totalUsersCount={props.totalUsersCount}
+            <Paginator totalItemsCount={props.totalUsersCount}
                        pageSize={props.pageSize}
                        currentPage={props.currentPage}
-                       onPageChanged={props.onPageChanged}/>
+                       onPageChanged={props.onPageChanged}
+                       portionSize="10"/>
         </div>
     );
 }

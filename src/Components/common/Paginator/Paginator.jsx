@@ -1,38 +1,45 @@
 import obj from "./Paginator.module.css";
-import React from "react";
+import React, {useState} from "react";
 
-const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+    let pagesCount = Math.ceil(totalItemsCount / pageSize);
+    const [portionNumber, setPortionNumber] = useState(1);
 
     let Pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         Pages.push(i);
     }
 
-    // page display, on my own
-    if (currentPage <= 5 || currentPage === "...") {
-        Pages.splice(10);
-        Pages.push("...");
-    } else {
-        Pages.splice(0, currentPage - 5, "...");
-        Pages.splice(10);
-        // Pages.unshift("...");
-        Pages.push("...");
-    }
-    //
+    const portionPageSize = Math.ceil(pagesCount / portionSize);
+    const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+    const rightPortionPageNumber = portionNumber * portionSize;
 
     return (
         <div className={obj.pages}>
-            {Pages.map((p) => {
-                return (
-                    <span className={currentPage === p && obj.selected}
-                          onClick={() => {
-                              onPageChanged(p)
-                          }}>
-                        {p + " "}
-                    </span>
-                )
+            {portionNumber > 1
+                && <svg className={obj.leftArrow}
+                        onClick={() => { setPortionNumber(portionNumber - 1) }}
+                        width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 10 11 0v20L0 10Z" fill="#8500BA"/>
+            </svg>}
+            {Pages.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map((p) => {
+                    return (
+                        <span className={ currentPage === p ? obj.selectedPage : obj.pageNumber }
+                              key={p}
+                              onClick={() => {
+                                  onPageChanged(p)
+                              }}>
+                            {p}
+                        </span>
+                    )
             })}
+            {portionPageSize > portionNumber
+                && <svg className={obj.rightArrow}
+                        onClick={() => { setPortionNumber(portionNumber + 1) }}
+                        width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 10 0 20V0l11 10Z" fill="#8500BA"/>
+            </svg>}
             <div className={obj.separator}/>
         </div>
     );

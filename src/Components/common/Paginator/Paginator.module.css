@@ -14,3 +14,20 @@
     border: 1px solid #8500BA;
     width: 45%;
 }
+
+.leftArrow {
+    margin: 0px 8px -4px 0px;
+}
+
+.rightArrow {
+    margin: 0px 0px -4px 8px;
+}
+
+.pageNumber {
+    padding: 2px;
+}
+
+.selectedPage {
+    padding: 2px;
+    font-weight: 700;
+}
