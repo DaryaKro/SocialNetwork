@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/154.727fc8df.chunk.css","mappings":"AAAA,yBACI,YACJ,CAEA,sBAEI,kBAAyB,CADzB,UAEJ","sources":["Components/Music/Music.module.css"],"sourcesContent":[".musicPage {\r\n    padding: 20px;\r\n}\r\n\r\n.smiling {\r\n    width: 100%;\r\n    padding: 0px 20px 0px 0px;\r\n}"],"names":[],"sourceRoot":""}
