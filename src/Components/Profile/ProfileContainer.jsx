@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getUserProfile, getUserStatus, updateUserStatus} from "../../Redux/profilePageReducer";
+import {getUserProfile, getUserStatus, savePhoto, updateUserStatus} from "../../Redux/profilePageReducer";
 import {useParams} from "react-router-dom";
 import withAuthNavigate from "../../hoc/withAuthNavigate";
 import {compose} from "redux";
@@ -14,7 +14,7 @@ const withRouter = (WrappedComponent) => (props) => {
 };
 
 class ProfileContainer extends React.Component {
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.params.userId;
         if (!userId) {
             userId = this.props.authorizedUserId;
@@ -23,12 +23,24 @@ class ProfileContainer extends React.Component {
         this.props.getUserStatus(userId);
     }
 
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // if (this.props.params.userId !== prevProps.params.userId) {
+            this.refreshProfile();
+        // }
+    }
+
     render() {
         return (
             <Profile {...this.props}
                      userProfile={this.props.userProfile}
                      userStatus={this.props.userStatus}
-                     updateUserStatus={this.props.updateUserStatus}/>
+                     updateUserStatus={this.props.updateUserStatus}
+                     isOwner={!this.props.params.userId}
+                     savePhoto={this.props.savePhoto}/>
         )
     }
 }
@@ -41,7 +53,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}),
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
     withRouter,
     withAuthNavigate)
 (ProfileContainer);
