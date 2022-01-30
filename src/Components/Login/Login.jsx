@@ -6,12 +6,13 @@ import {connect} from "react-redux";
 import {login} from "../../Redux/authReducer";
 import {Navigate} from "react-router-dom";
 import style from "../common/FormsControls/FormsControls.module.css";
+import {useEffect} from "react";
 
 const Input = Element("input");
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
     }
 
     if (props.isAuth) return <Navigate to={"/profile"}/>
@@ -19,12 +20,12 @@ const Login = (props) => {
     return (
         <div className={obj.wrapper}>
             <h3 className={obj.headingOfLoginPage}>Login</h3>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     )
 }
 
-const LoginForm = ({handleSubmit, error}) => {
+const LoginForm = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -38,11 +39,15 @@ const LoginForm = ({handleSubmit, error}) => {
                        className={obj.loginInput}/>
             </div>
             <div className={obj.loginCheckbox}>
-                <Field type="checkbox" component={Input} name={"rememberMe"} id={"check"}/>
+                <Field type="checkbox" component={Input} name={"rememberMe"}/>
                 <label>remember me</label>
             </div>
             <div>
                 { error && <div className={style.summaryError}>⚠ {error}</div> }
+            </div>
+            <div>
+                {captchaUrl && <img src={captchaUrl} alt="captchaUrl"/>}
+                {captchaUrl && <Field placeholder="Symbols from image" component={Input} name="captcha"/>}
             </div>
             <div className={obj.loginButton}>
                 <button>Login</button>
@@ -54,6 +59,7 @@ const LoginForm = ({handleSubmit, error}) => {
 const LoginReduxForm = reduxForm({form: "login"})(LoginForm);
 
 const mapStateToProps = (state) => ({
+    captchaUrl: state.authReducer.captchaUrl,
     isAuth: state.authReducer.isAuth,
 })
 
