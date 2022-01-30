@@ -5,7 +5,7 @@ const instance = axios.create({
     withCredentials: true,
     headers: {
         "API-KEY": "c8fda682-9419-4cd0-a588-6231ff2e3f0f"
-        // "API-KEY": "69a826e2-7816-4ec3-850b-7b0311ad88b8"
+        // "API-KEY": "06a96297-6324-4f2b-a3df-3e6be3de24ab"
     }
 });
 
@@ -39,7 +39,10 @@ export const profileAPI = {
                 "Content-Type": "multipart/form-data"
             }
         });
-    }
+    },
+    saveProfile(userProfile) {
+        return instance.put(`profile`, userProfile);
+    },
 }
 
 export const authAPI = {

@@ -9,7 +9,7 @@ const Textarea = Element("textarea");
 
 const MyPosts = (props) => {
 
-    const PostsElements = props.PostsData.map((p) => <Post message={p.message} likesCount={p.likesCount}/>);
+    const PostsElements = props.PostsData.map((p) => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
     const addNewPost = (value) => {
         props.addPost(value.newPostText);

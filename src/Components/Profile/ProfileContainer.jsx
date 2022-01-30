@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getUserProfile, getUserStatus, savePhoto, updateUserStatus} from "../../Redux/profilePageReducer";
+import {getUserProfile, getUserStatus, savePhoto, saveProfile, updateUserStatus} from "../../Redux/profilePageReducer";
 import {useParams} from "react-router-dom";
 import withAuthNavigate from "../../hoc/withAuthNavigate";
 import {compose} from "redux";
@@ -28,9 +28,9 @@ class ProfileContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // if (this.props.params.userId !== prevProps.params.userId) {
+        if (this.props.params.userId !== prevProps.params.userId ) {
             this.refreshProfile();
-        // }
+        }
     }
 
     render() {
@@ -40,7 +40,8 @@ class ProfileContainer extends React.Component {
                      userStatus={this.props.userStatus}
                      updateUserStatus={this.props.updateUserStatus}
                      isOwner={!this.props.params.userId}
-                     savePhoto={this.props.savePhoto}/>
+                     savePhoto={this.props.savePhoto}
+                     saveProfile={this.props.saveProfile}/>
         )
     }
 }
@@ -53,7 +54,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto}),
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus, savePhoto, saveProfile}),
     withRouter,
     withAuthNavigate)
 (ProfileContainer);
