@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksocial_network=self.webpackChunksocial_network||[]).push([[7],{5007:function(e,s,n){n.r(s),n.d(s,{default:function(){return r}});var i="News_newsPage__WXo5P",c="News_smiling__Gh8Ul",t=n(4445),a=n(184),r=function(e){return(0,a.jsxs)("div",{className:i,children:[(0,a.jsx)("div",{children:"News"}),(0,a.jsx)("div",{children:"Page under construction"}),(0,a.jsx)("img",{src:t,alt:"smiling",className:c})]})}},4445:function(e,s,n){e.exports=n.p+"static/media/hedgehog.3ff5588f17ba40059bf9.jpeg"}}]);
+//# sourceMappingURL=7.bc3b1961.chunk.js.map

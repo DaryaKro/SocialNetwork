@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksocial_network=self.webpackChunksocial_network||[]).push([[154],{5154:function(s,i,e){e.r(i),e.d(i,{default:function(){return a}});var c="Music_musicPage__tT+k7",n="Music_smiling__P2MAj",t=e(4445),u=e(184),a=function(s){return(0,u.jsxs)("div",{className:c,children:[(0,u.jsx)("div",{children:"Music"}),(0,u.jsx)("div",{children:"Page under construction"}),(0,u.jsx)("img",{src:t,alt:"smiling",className:n})]})}},4445:function(s,i,e){s.exports=e.p+"static/media/hedgehog.3ff5588f17ba40059bf9.jpeg"}}]);
+//# sourceMappingURL=154.7afc9dba.chunk.js.map
